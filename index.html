@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./main.js" defer></script>
+
+  <title>FEM | Interactive card details form</title>
+
+</head>
+
+<body>
+  <main>
+    <div class="flex-wrapper">
+
+      <div class="side-panel">
+        <div class="card-image-container">
+          <div class="overlay">
+            <img src="./images/card-logo.svg" alt="card logo" aria-hidden="true">
+            <span class="visual-heading card-num">0000 0000 0000 0000</span>
+            <span class="card-name">Jane Appleseed</span>
+            <div class="exp-date">
+              <span class="exp-month">00</span>
+              /
+              <span class="exp-year">00</span>
+            </div>
+          </div>
+          <div class="overlay">
+            <span class="card-cvc">000</span>
+          </div>
+          <img src="./images/bg-card-front.png" alt="credit card front image">
+          <img src="./images/bg-card-back.png" alt="credit card bank image">
+        </div>
+      </div>
+
+      <div class="payment-panel flex-centered">
+        <form action="/submit" method="post" class="payment-form">
+          <div class="name-container">
+            <label for="name">Cardholder Name</label>
+            <input type="text" id="name" name="card-name" placeholder="e.g. Jane Appleseed" maxlength="25">
+            <p class="error-message"></p>
+          </div>
+          <div class="number-container">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" name="card-number" placeholder="e.g. 1234 5678 9123 0000"
+              maxlength="19">
+            <p class="error-message"></p>
+          </div>
+          <div class="card-details">
+            <div class="expiration-container">
+              <label for="expiration-date">Exp. Date (MM/YYYY)</label>
+              <div class="expiration-dates">
+                <input class="expiration-month" type="text" id="expiration-date" name="expiration-month"
+                  placeholder="MM" maxlength="2">
+                <input class="expiration-year" type="number" id="expiration-date" name="expiration-year"
+                  placeholder="YYYY" min="1900" max="2100" maxlength="4">
+              </div>
+              <div class="expiration-errors">
+                <p class="error-message"></p>
+                <p class="error-message"></p>
+              </div>
+            </div>
+            <div class="cvc-container">
+              <label for="cvc">CVC</label>
+              <input type="text" id="cvc" name="cvc" placeholder="e.g. 123" maxlength="3">
+              <p class="error-message"></p>
+            </div>
+          </div>
+          <input id="submit" type="submit" value="Confirm">
+        </form>
+
+        <div class="complete-state flex-centered">
+          <img src="./images/icon-complete.svg" alt="complete state icon" aria-hidden="true">
+          <h2>Thank You!</h2>
+          <p>We've added your card details</p>
+          <button class="continue-btn" type="button">Continue</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
